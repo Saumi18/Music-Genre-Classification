@@ -34,15 +34,21 @@ Model performance is evaluated using accuracy scores and confusion matrices.
 
 ```bash
 pip install numpy pandas matplotlib seaborn librosa scikit-learn
+```
 
+### 2. Clone the Repository
+```bash
 git clone https://github.com/Saumi18/Music-Genre-Classification.git
 cd Music-Genre-Classification
+```
 
+### 3. Run the Notebook
+```bash
 jupyter notebook Music_Genre_Classification.ipynb
 ```
 Run all cells step-by-step to see feature extraction, model training, and evaluation.
 
-##📊 Output
+## Output:
 The notebook includes:
 
 Feature visualizations
@@ -53,7 +59,7 @@ Accuracy scores
 
 Classification reports
 
-##🧩 Future Work
+## Future Work:
 Add deep learning models (CNN on spectrograms)
 
 Web interface for genre prediction
