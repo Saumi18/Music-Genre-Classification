@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
-from models import CustomKNN
+from models import CustomKNN, ImprovedANN
 import os
 import librosa
 import numpy as np
@@ -15,7 +15,7 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Load model, scaler, and label encoder
-bundle = joblib.load('Web_Demo/models/knn_model.pkl')
+bundle = joblib.load('Web_Demo/models/ann_model.pkl')
 model = bundle['model']
 scaler = bundle['scaler']
 label_encoder = bundle['label_encoder']

@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 
+import torch.nn as nn
+
 class CustomKNN:
     def __init__(self, k=3):
         self.k = k
@@ -30,3 +32,26 @@ class CustomKNN:
     def predict(self, X_test):
         """Predicts labels for all test points in X_test using KNN."""
         return [self._predict_label(self._get_k_nearest_neighbors(test_point)) for test_point in X_test]
+    
+class ImprovedANN(nn.Module):
+    def __init__(self, input_dim, output_dim):
+        super(ImprovedANN, self).__init__()
+        self.model = nn.Sequential(
+            nn.Linear(input_dim, 512),
+            nn.BatchNorm1d(512),
+            nn.ReLU(),
+            nn.Dropout(0.4),
+
+            nn.Linear(512, 256),
+            nn.BatchNorm1d(256),
+            nn.ReLU(),
+            nn.Dropout(0.3),
+
+            nn.Linear(256, 128),
+            nn.ReLU(),
+
+            nn.Linear(128, output_dim)
+        )
+
+    def forward(self, x):
+        return self.model(x)
