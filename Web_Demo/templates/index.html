@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Genre Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                <h1>Music Genre Classifier</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active" data-page="home">Home</a></li>
+                <li><a href="#" data-page="about">About</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="page active">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Upload Music File</h2>
+                        <p>Upload an audio file to predict its genre</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="upload-area" id="upload-area">
+                            <input type="file" id="file-upload" accept="audio/*" hidden>
+                            <div class="upload-icon">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                            </div>
+                            <p>Click to upload or drag and drop</p>
+                            <span class="file-info">Supports MP3, WAV, OGG, etc.</span>
+                        </div>
+
+                        <div class="file-preview" id="file-preview" style="display: none;">
+                            <div class="file-info">
+                                <i class="fas fa-music"></i>
+                                <span id="file-name">filename.mp3</span>
+                            </div>
+                            <button class="remove-btn" id="remove-file">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <div class="progress-container" id="progress-container" style="display: none;">
+                            <div class="progress-info">
+                                <span>Uploading...</span>
+                                <span id="progress-percentage">0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" id="progress-bar"></div>
+                            </div>
+                        </div>
+
+                        <div class="result-container" id="result-container" style="display: none;">
+                            <h3>Predicted Genre:</h3>
+                            <div class="genre-result" id="genre-result">Rock</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button id="predict-btn" class="btn primary-btn" type="button" disabled>
+                            <span class="btn-text">Predict Genre</span>
+                            <span class="btn-loader" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page">
+            <div class="container">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>About This Project</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="about-content">
+                            <h3>Music Genre Classification</h3>
+                            <p>This web application uses machine learning algorithms to analyze and classify music files into different genres. The classification is based on various audio features extracted from the music file.</p>
+                            
+                            <h3>How It Works</h3>
+                            <ol>
+                                <li>Upload your music file (MP3, WAV, OGG, etc.)</li>
+                                <li>Our system analyzes the audio features</li>
+                                <li>Machine learning algorithms classify the music</li>
+                                <li>The predicted genre is displayed</li>
+                            </ol>
+                            
+                            <h3>Supported Genres</h3>
+                            <div class="genre-tags">
+                                <span class="tag">Rock</span>
+                                <span class="tag">Pop</span>
+                                <span class="tag">Hip Hop</span>
+                                <span class="tag">Jazz</span>
+                                <span class="tag">Classical</span>
+                                <span class="tag">Electronic</span>
+                                <span class="tag">R&B</span>
+                                <span class="tag">Country</span>
+                                <span class="tag">Reggae</span>
+                                <span class="tag">Metal</span>
+                            </div>
+                            
+                            <h3>Technology</h3>
+                            <p>This application is built using HTML, CSS, and JavaScript for the frontend. The genre classification is performed using a machine learning model trained on thousands of music samples across different genres.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Music Genre Classifier. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <i class="fas fa-exclamation-circle"></i>
+            <span id="toast-message">This is a toast message</span>
+        </div>
+        <div class="toast-progress"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
