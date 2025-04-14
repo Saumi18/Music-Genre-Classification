@@ -41,7 +41,7 @@
                                 <i class="fas fa-cloud-upload-alt"></i>
                             </div>
                             <p>Click to upload or drag and drop</p>
-                            <span class="file-info">Supports MP3, WAV, OGG, etc.</span>
+                            <span class="file-info">Supports WAV, FLAG, OGG, etc.</span>
                         </div>
 
                         <div class="file-preview" id="file-preview" style="display: none;">
@@ -85,40 +85,107 @@
             <div class="container">
                 <div class="card">
                     <div class="card-header">
-                        <h2>About This Project</h2>
+                        <h2>How to use Web Demo</h2>
                     </div>
                     <div class="card-body">
-                        <div class="about-content">
-                            <h3>Music Genre Classification</h3>
-                            <p>This web application uses machine learning algorithms to analyze and classify music files into different genres. The classification is based on various audio features extracted from the music file.</p>
-                            
-                            <h3>How It Works</h3>
-                            <ol>
-                                <li>Upload your music file (MP3, WAV, OGG, etc.)</li>
-                                <li>Our system analyzes the audio features</li>
-                                <li>Machine learning algorithms classify the music</li>
-                                <li>The predicted genre is displayed</li>
-                            </ol>
-                            
-                            <h3>Supported Genres</h3>
-                            <div class="genre-tags">
-                                <span class="tag">Rock</span>
-                                <span class="tag">Pop</span>
-                                <span class="tag">Hip Hop</span>
-                                <span class="tag">Jazz</span>
-                                <span class="tag">Classical</span>
-                                <span class="tag">Electronic</span>
-                                <span class="tag">R&B</span>
-                                <span class="tag">Country</span>
-                                <span class="tag">Reggae</span>
-                                <span class="tag">Metal</span>
+                        <ol>
+                            <li>Clone the GitHub repository to your local machine.</li>
+                            <li>Run: <code>python -m venv venv</code> to create a virtual environment.</li>
+                            <li>Run: <code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process</code> to allow script execution in PowerShell.</li>
+                            <li>Activate the virtual environment: <code>.\venv\Scripts\activate</code></li>
+                            <li>Once activated, you will see the environment name on your terminal prompt.</li>
+                            <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+                            <li>Run the web app using: <code>python Web_Demo/app.py</code></li>
+                            <li>Open the server address displayed in the terminal (default: <a href="http://127.0.0.1:5000">http://127.0.0.1:5000</a>).</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Music Genre Classification</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>As digital music expands, automatic music genre classification has become crucial for efficient organization, search, and recommendation systems. This project focuses on classifying music genres using machine learning models trained on extracted audio features from the GTZAN dataset.</p>
+                        <img src="{{ url_for('static', filename='project_image.png') }}" alt="Project Image">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Dataset Overview</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>The GTZAN dataset contains 10 genres with 100 audio files per genre, each 30 seconds long. The dataset was preprocessed into both statistical CSV features and spectrogram images for machine learning and deep learning models.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Approach</h2>
+                    </div>
+                    <div class="card-body">
+                        <p>Multiple machine learning models were compared:</p>
+                        <ul>
+                            <li>K-Nearest Neighbors (KNN)</li>
+                            <li>Support Vector Machines (SVM)</li>
+                            <li>Random Forest</li>
+                            <li>Gaussian Mixture Models (GMM)</li>
+                            <li>Artificial Neural Networks (ANN)</li>
+                        </ul>
+                        <p>Feature extraction was done using statistical summaries (mean, variance) from 3-second and 30-second audio segments. Models were evaluated with 80-20 train-test split using accuracy and confusion matrices.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Resources</h2>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li><a href="https://youtu.be/5WWGS2PwFB0?si=DGhjy1yhHkpGDn0J" target="_blank">Short Talk Video</a></li>
+                            <li><a href="{{ url_for('static', filename='Reading_Paper.pdf') }}" target="_blank">Research Paper PDF</a></li>
+                            <li><a href="https://github.com/Saumi18/Music-Genre-Classification" target="_blank">GitHub Repository</a></li>
+                            <li><a href="https://colab.research.google.com/github/Saumi18/Music-Genre-Classification/blob/main/Music_Genre_Classification.ipynb" target="_blank">Colab Notebook</a></li>
+                            <li><a href="{{ url_for('static', filename='mom.pdf') }}" target="_blank">Minutes of Meeting PDF</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>About the Team</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="team-grid">
+                            <div class="team-member">
+                                <img src="{{ url_for('static', filename='ayush.jpg') }}" alt="Ayush Singh" class="image">
+                                <h4>Ayush Singh</h4>
                             </div>
-                            
-                            <h3>Technology</h3>
-                            <p>This application is built using HTML, CSS, and JavaScript for the frontend. The genre classification is performed using a machine learning model trained on thousands of music samples across different genres.</p>
+                            <div class="team-member">
+                                <img src="{{ url_for('static', filename='swarnava.jpg') }}" alt="Swarnava Mandal" class="image">
+                                <h4>Swarnava Mandal</h4>
+                            </div>
+                            <div class="team-member">
+                                <img src="{{ url_for('static', filename='saumitra.jpg') }}" alt="Saumitra Prasad Kulkarni" class="image">
+                                <h4>Saumitra Prasad Kulkarni</h4>
+                            </div>
+                            <div class="team-member">
+                                <img src="{{ url_for('static', filename='prince.jpg') }}" alt="Prince Kumar" class="image">
+                                <h4>Prince Kumar</h4>
+                            </div>
+                            <div class="team-member">
+                                <img src="{{ url_for('static', filename='ritik.jpg') }}" alt="Ritik Singh" class="image">
+                                <h4>Ritik Singh</h4>
+                            </div>
+                            <div class="team-member">
+                                <img src="{{ url_for('static', filename='william.jpg') }}" alt="Kukatlapalli William Samuel" class="image">
+                                <h4>Kukatlapalli William Samuel</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
     </main>
