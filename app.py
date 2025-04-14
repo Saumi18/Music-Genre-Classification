@@ -16,13 +16,13 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 
 # Load KNN model
-bundle = joblib.load('Web_Demo/models/knn_model.pkl')
+bundle = joblib.load('models/knn_model.pkl')
 knn_model = bundle['model']
 scaler = bundle['scaler']
 label_encoder = bundle['label_encoder']
 
 # Load ANN model
-ann_checkpoint = torch.load("Web_Demo/models/ann_model.pth", map_location=torch.device('cpu'))
+ann_checkpoint = torch.load("models/ann_model.pth", map_location=torch.device('cpu'))
 input_dim = ann_checkpoint['input_dim']
 output_dim = ann_checkpoint['output_dim']
 ann_model = ImprovedANN(input_dim, output_dim)
